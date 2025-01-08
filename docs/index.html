@@ -1,0 +1,434 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<head lang="en">
+	<meta http-equiv="content-type" content="text/html;charset=utf-8">
+	<title>Fix The Picture - HTML5 Game</title>
+	<!-- Framework CSS -->
+	<link rel="stylesheet" href="assets/blueprint-css/screen.css" type="text/css" media="screen, projection">
+	<link rel="stylesheet" href="assets/blueprint-css/print.css" type="text/css" media="print">
+	<!--[if lt IE 8]><link rel="stylesheet" href="assets/blueprint-css/ie.css" type="text/css" media="screen, projection"><![endif]-->
+	<link rel="stylesheet" href="assets/blueprint-css/plugins/fancy-type/screen.css" type="text/css" media="screen, projection">
+	<style type="text/css" media="screen">
+		p, table, hr, .box { margin-bottom:25px; }
+		.box p { margin-bottom:10px; }
+	</style>
+</head>
+
+
+<body>
+	<div class="container">
+	
+		<h3 class="center alt">&ldquo;Fix The Picture&rdquo; Documentation by &ldquo;APG&rdquo; v1.1</h3>
+		
+		<hr>
+		
+		<h1 class="center">&ldquo;Fix The Picture&rdquo;</h1>
+		
+		<div class="borderTop">
+			<div class="span-6 colborder info prepend-1">
+				<p class="prepend-top">
+					<strong>
+					Created: 05/09/2024<br>
+					By: APG<br>
+					Email: <a href="mailto:apggames99@gmail.com">apggames99@gmail.com</a>
+					</strong>
+				</p>
+			</div><!-- end div .span-6 -->		
+	
+			<div class="span-12 last">
+				<p class="prepend-top append-0">Thank you for purchasing my game. If you have any questions that are beyond the scope of this help file, please feel free to email via my user page contact form <a href="http://themeforest.net/user/apggames99">here</a>. Thanks so much!</p>
+			</div>
+		</div><!-- end div .borderTop -->
+		
+		<hr>
+		
+		<h2 id="toc" class="alt">Table of Contents</h2>
+		<ol class="alpha">
+			<li><a href="#description">Description</a></li>
+			<li><a href="#fcontent">Folder Content</a></li>
+			<li><a href="#getstart">Getting Started</a></li>
+			<li><a href="#code">Source Code</a></li>
+			<li><a href="#config">Config</a></li>
+			<li><a href="#levels">Levels Management</a></li>
+			<li><a href="#lang">Language Management</a></li>
+			<li><a href="#store">Store Config</a></li>
+			<li><a href="#audio">Audio Management</a></li>
+			<li><a href="#social">Social Api</a></li>
+			<li><a href="#wnd">Windows Management</a></li>
+			<li><a href="#font">Fonts</a></li>
+			<li><a href="#progress">Saving progress</a></li>
+			<li><a href="#changegraph">Change Graphics</a></li>
+			<li><a href="#bundle">Bundle Build</a></li>
+			<li><a href="#cop">Copyright</a></li>
+			
+			
+			<!-- <li><a href="#htmlStructure">HTML Structure</a></li>
+			<li><a href="#cssFiles">CSS Files and Structure</a></li>
+			<li><a href="#javascript">JavaScript</a></li>
+			<li><a href="#psdFiles">PSD Files</a></li>
+			<li><a href="#credits">Sources and Credits</a></li>
+			
+			<li><a href="#">PHP Code Explanation</a> <em class="quiet small">(If your theme uses PHP)</em></li>
+			<li><a href="#">Flash</a>  <em class="quiet small">(If your theme uses Flash)</em></li>
+			<li><a href="#">API Usage</a> <em class="quiet small">(If your theme uses an API)</em></li>
+			<li><a href="#">Any additional unique features that need an overview</a></li> -->
+		</ol>
+		
+		<hr>
+		
+		<h3 id="description"><strong>A) Description</strong> - <a href="#toc">top</a></h3>
+		<p>
+			Fix The Picture is an HTML5 game powered by Phaser 3.
+			This is a fun and relaxing puzzle game where you restore beautiful images by moving rounded pieces into their correct places.
+			The ZIP package contains the game at a 1280x720 resolution with auto-resize support for landscape mode. This game is playable on all platforms (mobile, PC, etc.).
+		</p>
+		
+		<h3 id="font"><strong>B) Folder Content</strong> - <a href="#toc">top</a></h3>
+		<ol>
+			<li>
+				<strong>assets</strong>
+			</li>
+			This folder contains assets such as sounds, images, fonts, levels, and XML files.
+			<li>
+				<strong>docs</strong>
+			</li>
+			This folder contains documentation.
+			<li>
+				<strong>content</strong>
+			</li>
+			This folder contains graphical sources.
+			<li>
+				<strong>external</strong>
+			</li>
+			This folder is for external plugins and libraries.
+			<li>
+				<strong>js</strong>
+			</li>
+			This folder contains JavaScript code.
+			<li>
+				<strong>js_min</strong>
+			</li>
+			This folder contains minified JavaScript code for a production. Set <strong>loading_vars['js_combined'] = true</strong> in the <strong>index.html</strong> if you want the game loads minified code.
+			<li>
+				<strong>boot.js</strong>
+			</li>
+			This is the main JavaScript file where the game is initialized and assets are preloaded.
+			<li>
+				<strong>config.js</strong>
+			</li>
+			This file contains the game configuration settings.
+			<li>
+				<strong>game_request.js</strong>
+			</li>
+			This file contains requests that manage the user's state.
+			<li>
+				<strong>index.html</strong>
+			</li>
+			This is a root HTML file.
+			<li>
+				<strong>gulpfile.js</strong>
+			</li>
+			GULP config.
+			<li>
+				<strong>package.json</strong>
+			</li>
+			Project's metadata.
+		</ol>
+
+		<h3 id="getstart"><strong>C) Getting Started</strong> - <a href="#toc">top</a></h3>
+		<p>To run the game you just need to run index.html in the browser via local server like <a href="https://httpd.apache.org/docs/current/platform/windows.html" target="_blank">Apache</a>, <a href="https://www.apachefriends.org/" target="_blank">Xampp</a>, or another one.</p>
+
+		<h3 id="code"><strong>D) Source Code</strong> - <a href="#toc">top</a></h3>
+		<p>
+			This game contains:
+			<ol>
+				<li>Phaser 3</li>
+				<li>Our custom scripts</li>
+			</ol>
+			<ol>
+				<li>Phaser 3 is a game framework built with JavaScript that allows you to create games using HTML, a little bit of CSS, and JavaScript.</li>
+				<li>
+					The game has the following JavaScript files:
+					<ul>
+						<li>./boot.js: this is the main file that preloads assets and initializes the game.</li>
+						<li>./config.js: this file contains the game configuration.</li>
+						<li>./game_request.js: this file contains requests that manage the user's state.</li>
+						<li>./js/game.js: this file is called in <strong>boot.js</strong> and creates all the internal classes and managers.</li>
+						<li>./js/game_map/game_map.js: this class is responsible for managing the starting scene.</li>
+						<li>./js/game_play/game_play.js: this class is responsible for game logic and gameplay control.</li>
+						<li>./js/game_play/hint_panel.js: this class is responsible for managing hints.</li>
+						<li>./js/game_play/stage_panel.js: this class is responsible for managing level stages.</li>
+						<li>./js/game_play/timer_panel.js: this class is responsible for time management.</li>
+						<li>./js/game_utilities/audio_manager.js: this class manages sound and music control.</li>
+						<li>./js/game_utilities/custom_button.js: this class creates an in-game button.</li>
+						<li>./js/game_utilities/game_utils.js: this class contains various utility functions.</li>
+						<li>./js/game_utilities/graphics_manager.js: this class helps create graphics for windows.</li>
+						<li>./js/game_utilities/loading_overlay.js: this class is responsible for the logic of the loading layer.</li>
+						<li>./js/game_utilities/social_api.js: this class manages social functions.</li>
+						<li>./js/game_utilities/test_ad_manager.js: this class manages test interstitial and rewarded ads.</li>
+						<li>./js/game_windows/game_windows.js: this class controls the creation, management, and deletion of windows.</li>
+						<li>./js/game_windows/buy_money_item.js: this class creates a shop item in the BuyMoney window.</li>
+						<li>./js/game_windows/buy_money.js: this class creates a window with shop positions.</li>
+						<li>./js/game_windows/info.js: this class creates a window that displays game rules.</li>
+						<li>./js/game_windows/level_complete.js: this class creates a window that displays a victory window.</li>
+						<li>./js/game_windows/level_failed.js: this class creates a window that allows you to continue the level by watching a reward ad or by paying a local currency or to exit.</li>
+						<li>./js/game_windows/options.js: this class creates a window that allows open an options.</li>
+						<li>./js/game_windows/purchase_failed.js: this class creates a window that displays a failed purchase.</li>
+						<li>./js/game_windows/purchase_success.js: this class creates a window that displays a successful purchase.</li>
+						<li>./js/game_windows/quit.js: this class creates a window that displays an offer to leave the level.</li>
+						<li>./js/game_windows/select_language.js: this class creates a window that allows for language selection.</li>
+					</ul>
+				</li>
+			</ol>
+			Resuming, the complete game flow is the following:
+			<ol>
+				<li>The index.html file preloads boot.js, config.js and game_request.js.</li>
+				<li>Then in boot.js the process of preloading and game initialization starts when the ready event is called.</li>
+				<li>After that, game.js starts the process of creating other classes, containers and managers.</li>
+				<li>After all the creations, the map scene starts, allowing the player to begin playing.</li>
+				<li>
+					There is a user data object that defines user progress and behavior. When the user performs any action, a request is sent to update the user data. This data is then updated in <strong>localStorage</strong>. All the requests can be found in <strong>game_request.js</strong>. Here is an example of how a request is called when the user completes a level in the <strong>GamePlay</strong> class:
+				</li>
+				<img src="assets/images/20.png" alt="request example" />
+			</ol>
+		</p>
+
+		<h3 id="changegraph"><strong>E) Config</strong> - <a href="#toc">top</a></h3>
+		<p>
+			The initial configuration can be found in the <strong>index.html</strong> file, and it contains some basic information.
+		</p>
+		<img src="assets/images/1.png" alt="loading_vars" />
+		<p>
+			The <strong>gamedata</strong> object is in <strong>config.js</strong> and contains various social and shop-related components.
+		</p>
+		<img src="assets/images/3.png" alt="game data configuration" />
+		<p>
+			The <strong>userdata</strong> object is in <strong>config.js</strong> and contains information about the user.
+		</p>
+		<img src="assets/images/4.png" alt="user data configuration" />
+		
+		<h3 id="levels"><strong>F) Levels Management</strong> - <a href="#toc">top</a></h3>
+		<p>
+			There are 40 levels in the game, all located in the <strong>./assets/levels/</strong> folder. The <strong>level.js</strong> file contains all the information about the levels.
+		</p>
+		<p>
+			Here is the configuration for level 1. You can set as many stages as you want. In this example, there are 4 stages, while in other examples there are 3 stages. If you want to have 3 stages in level 1, you should remove an element from the <strong>pictures</strong> array and the corresponding point from the <strong>points</strong> array.
+		</p>
+		<img src="assets/images/34.png" alt="1 level" />
+		<p>
+			This is how it looks in the game. All points' angles are set randomly.
+		</p>
+		<img src="assets/images/35.png" alt="1 level" />
+		<p>
+			Let's say you want to add a new level with two pictures to the existing 40. To do this:
+		</p>
+		<ol>
+			<li>
+				Create a folder named <strong>./assets/levels/level41/</strong> and place two pictures in <strong>.webp</strong> format there. <strong>.webp</strong> is used in this game because of its smaller size compared to <strong>.png</strong> or <strong>.jpg</strong>. There are many <a href="https://cloudconvert.com/png-to-webp" target="_blank">converters</a> available online to convert <strong>.png</strong> or <strong>.jpg</strong> to <strong>.webp</strong>.
+			</li>
+			<li>
+				Modify the levels array in the <strong>levels.js</strong> file. Add a new object at the end, set the <strong>time</strong> parameter, add picture names to the <strong>pictures</strong> array, and provide two point arrays in the <strong>points</strong> array.
+			</li>
+			<li>
+				If everything is done correctly, the 41st level will be displayed on the GameMap.
+			</li>
+		</ol>
+		<img src="assets/images/36.png" alt="41 level" />
+		<p>
+			There is also an option to enable developer mode. To do this, set <strong>game_data['dev_mode'] = true</strong>. After that, several additional features will become available to you:
+		</p>
+		<ol>
+			<li>
+				Each circle displays its text coordinates and radius. This is helpful when you want to modify an existing level or create a new one.
+			</li>
+			<li>
+				An "Auto Win" button that, when pressed, advances the game to the next stage.
+			</li>
+			<li>
+				Start any level in any order.
+			</li>
+			<li>
+				Clicking on a part of the picture shows its coordinates in the console.
+			</li>
+		</ol>
+		<img src="assets/images/37.png" alt="dev mode" />
+		<h3 id="lang"><strong>G) Language Management</strong> - <a href="#toc">top</a></h3>
+		<p>
+			There are five languages used in the game: English, French, German, Spanish, and Italian. All of the phrases can be found in <strong>./assets/xml/language.xml</strong>. Each phrase has important attributes: <strong>scene_id</strong>, <strong>item_id</strong>, and <strong>phrase_id</strong>, which are needed to call the phrase in JavaScript. Each phrase contains internal tags responsible for specific languages. Each language tag includes two inner tags: <strong>&lt;TEXT&gt;</strong>, which contains the value, and <strong>&lt;SIZE&gt;</strong>, which specifies the size value (0 by default). For example, setting <strong>-4</strong> will make the phrase smaller by 4 points.
+		</p>
+		<img src="assets/images/5.png" alt="phrase example" />
+		<p>
+			To generate text and set it to the JavaScript Text Object, follow these steps. As shown, you need to call the <strong>game_utils.generate_string</strong> method and provide <strong>scene_id</strong>, <strong>item_id</strong>, <strong>phrase_id</strong>, <strong>values</strong>, and <strong>base_size</strong>. This method returns an object with <strong>text</strong> and <strong>size</strong> fields. You can then create bitmap text and set the result accordingly.
+		</p>
+		<img src="assets/images/6.png" alt="generate text" />
+		<p>
+			I didn't mention the <strong>values</strong> parameter.
+			For example, if you need a phrase with a dynamic result, you should construct your tag as follows: replace the value with <strong>%val</strong>, and then pass the desired value into the <strong>values</strong> array.
+			This option is not used in this game. This is example is from another game.
+		</p>
+		<img src="assets/images/7.png" alt="button" />
+		<img src="assets/images/8.png" alt="phrase example" />
+		<img src="assets/images/9.png" alt="phrase example" />
+		<p>
+			To add a new phrase, simply add a <strong>&lt;DYNAMIC_PHRASE&gt;</strong> tag with three attributes and the necessary inner values and tags. Then, call it in the same way as shown in previous examples.
+		</p>
+		<p>
+			Additionally, you can switch the language during the game by calling the <strong>SelectLanguage</strong> window.
+		</p>
+		<img src="assets/images/10.png" alt="select language" />
+		<p>
+			If you want to remove a language, you should delete its value from the <strong>game_data['langs']</strong> array.
+		</p>
+		<img src="assets/images/11.png" alt="remove language" />
+		<h3 id="store"><strong>H) Store Config</strong> - <a href="#toc">top</a></h3>
+		<p>
+			There is a shop with four in-app purchases.
+			You can change the price or quantity of any item. You can also add more items, but in that case, you will need to adjust some layout in the <strong>buy_money.js</strong> and <strong>buy_money_item.js</strong> files and also add an icon to the common1 atlas named as an id parameter.
+			If a user makes at least one purchase, interstitial ads will no longer be shown.
+		</p>
+		<img src="assets/images/12.png" alt="shop config" />
+		<img src="assets/images/32.png" alt="shop window" />
+		<p>
+			If you plan to use this functionality in your game where it has its own API,
+			you can implement the logic in the <strong>SocialApi</strong> purchase method. Here is an example of what this method might look like:
+		</p>
+		<img src="assets/images/33.png" alt="purchase method" />
+		<p>
+			The initial call comes from <strong>BuyMoneyItem</strong> class.
+		</p>
+		<h3 id="audio"><strong>I) Audio Management</strong> - <a href="#toc">top</a></h3>
+		<p>
+			Here is path where all sounds and music are located <strong>./assets/audio/</strong> . To call a sound in the game, you should use the following method:
+		</p>
+		<img src="assets/images/15.png" alt="sound call" />
+		<p>
+			If you want to play looped music, use this method:
+		</p>
+		<img src="assets/images/16.png" alt="music call" />
+		<p>
+			If you want to stop all sounds and music, use this method:
+		</p>
+		<img src="assets/images/17.png" alt="stop all" />
+		<p>
+			You can also stop a specific sound or music, though this case is not used in the game. If you want to do this, you should call  <code>game_data['audio_manager'].sound_event({'stop': true, 'sound_type': 'sound' // or 'music'});</code>
+		</p>
+		<p>
+			There are two fields in the userdata object that define the state of music and sounds.
+		</p>
+		<img src="assets/images/18.png" alt="user data fields" />
+		<p>
+			The control of these fields is managed through two methods in the <strong>GameMap</strong> class.
+		</p>
+		<img src="assets/images/19.png" alt="music and sound controls" />
+		<h3 id="social"><strong>J) Social Api</strong> - <a href="#toc">top</a></h3>
+		<p>
+			If you decide to publish this game anywhere, you should initialize the social features (rewarded ads, interstitial ads, etc.). Consider using the <strong>SocialApi</strong> class in the <strong>game_utilities/social_api.js</strong> file as the base for your own implementation. Here is an example of a test net ID social class with mock code:
+		</p>
+		<img src="assets/images/13.png" alt="YourNetApi" />
+		<p>
+			Here is the initialization of the <strong>SocialApi</strong> class in the <strong>game.js</strong> file.
+		</p>
+		<img src="assets/images/14.png" alt="Social part initialization" />
+		<p>
+			To call a rewarded ad, you should use the <strong>game_data['utils'].show_rewarded_ad</strong> method. For an example, you can refer to the <strong>LevelFailed</strong> class.
+		</p>
+		<p>
+			To call an interstitial ad, you should use the <strong>game_data['utils'].check_ads</strong> method. For an example, you can refer to the <strong>LevelFailed</strong> class or the <strong>GameMap</strong> class.
+		</p>
+		<img src="assets/images/28.png" alt="call interstitial" />
+		<p>
+			In this example, the parameter passed is the string "level_lost". To make it clearer, you should consider the <strong>game_data['ads']['interstitial']['event_mult']</strong> object. Here, you can see a key with a float value. This indicates the place in the game where the ad could be called and the probability of it being called (e.g., 1 means the ad will be called every time, while 0.3 means the ad will be called 3 times out of 10 on average).
+		</p>
+		<img src="assets/images/29.png" alt="game_data['ads']['interstitial']['event_mult']" />
+		<p>
+			To summarize, let's say you want to publish a game on the Y platform with in-app payments, interstitial ads, and rewarded ads.
+			The platform will provide its own API. To integrate the game with Y, follow these steps:
+		</p>
+		<ol>
+			<li>Change <strong>loading_vars['net_id']</strong> in the <strong>index.html</strong> file to <strong>'y'</strong> for example.</li>
+			<li>Implement a class in <strong>./js/game_utilities/social_api.js</strong> as shown below.</li>
+			<img src="assets/images/39.png" alt="" />
+			<li>Initialize this class in the <strong>get_social_api</strong> method (<strong>./js/game.js</strong>) as shown below.</li>
+			<img src="assets/images/40.png" alt="" />
+			<li>If the platform offers cloud storage for saving progress, add code to game_request.js in the <strong>save_user_data</strong> and <strong>get_game_info_local</strong> methods as follows:</li>
+			<img src="assets/images/41.png" alt="" />
+			<img src="assets/images/42.png" alt="" />
+			<li>
+				If the platform requires an initialization process, add it to the <strong>initialize</strong> function in <strong>boot.js</strong> as shown below.
+			</li>
+			<img src="assets/images/43.png" alt="" />
+		</ol>
+		<h3 id="wnd"><strong>K) Windows Management</strong> - <a href="#toc">top</a></h3>
+		<p>
+			To display any window, you should call the following:
+		</p>
+		<img src="assets/images/21.png" alt="windows call" />
+		<p>
+			To close this window:
+		</p>
+		<img src="assets/images/23.png" alt="windows close" />
+		<p>
+			If you want to create your own window, you should initialize it in the <strong>display_window</strong> method's <strong>switch case</strong> statement in the <strong>./js/game_windows/game_windows.js</strong> file.
+		</p>
+		<img src="assets/images/22.png" alt="windows initializing" />
+		<p>
+			All window methods, such as <strong>open</strong>, <strong>close</strong>, etc., are located in the <strong>./js/game_windows/game_windows.js</strong> file.
+		</p>
+		<h3 id="changegraph"><strong>L) Fonts</strong> - <a href="#toc">top</a></h3>
+		<p>
+			There is one font type used in the game: <strong>Outline Font</strong>. It is located in the <strong>assets/fonts/</strong> folder. Here is an example of creating an outline text:
+		</p>
+		<img src="assets/images/24.png" alt="windows initializing" />
+		<p>
+			To use outline text, the <strong>assets/fonts/fontLoader1.css</strong> file is used and is called in <strong>index.html</strong>. There is an HTML issue where you need to assign this font to an element that will not be used; otherwise, some of your game text may not display correctly.
+		</p>
+		<img src="assets/images/27.png" alt="" />
+		<p>
+			If you want to use your own font, place it in the <strong>./assets/fonts/</strong> directory in <strong>.ttf</strong> format. Then, open <strong>./assets/fonts/fontLoader.css</strong> and update the font names in the indicated places.
+		</p>
+		<img src="assets/images/38.png" alt="" />
+		<h3 id="progress"><strong>M) Saving progress</strong> - <a href="#toc">top</a></h3>
+		<p>
+			The current version uses <strong>localStorage</strong> to save progress.
+			If you don't want <strong>localStorage</strong> to save progress, set <strong>game_data['clear_storage'] = true</strong>.
+			This logic is implemented in <strong>game_request.js</strong>.
+			The <strong>get_game_info_local</strong> method checks if there was previous progress, and if so, it uses that progress.
+			The <strong>save_user_data</strong> method saves progress and is called after any request made during the game, such as a <strong>buy_booster</strong> request. If you want to use a different storage method, you need to implement its API in these methods. An example is shown in the Social API section.
+		</p>
+		<h3 id="changegraph"><strong>N) Change Graphics</strong> - <a href="#toc">top</a></h3>
+		<p>
+			Most graphics used in the game are taken from the <strong>common1</strong> sprite sheet (<strong>./assets/common1.png</strong>, <strong>./assets/common1.json</strong>). The source graphics are located in <strong>./content/common1/</strong>. You can modify any graphics in <strong>./content/common1/</strong> and rebuild the sprite sheet using the <a href="https://www.codeandweb.com/texturepacker" target="_blank">TexturePacker</a> tool and place it into <strong>./assets/</strong> folder.
+			Don't forget to save graphics with names assigned before. Otherwise, the game will not display it correctly. Additionally, you can change the background in <strong>./assets/bgs/back.jpg</strong> to one of your preference.
+		</p>
+		<h3 id="bundle"><strong>O) Bundle Build</strong> - <a href="#toc">top</a></h3>
+		<p>
+			If you set <strong>loading_vars['js_combined']</strong> to true, the preloader will try to get the <strong>bundle.js</strong> file. This is intended for production mode. There are <strong>gulpfile.js</strong> and <strong>package.json</strong> files to build. You should install NPM and then run the following commands:
+			<ul>
+				<li>npm i</li>
+				<li>npm start</li>
+			</ul>
+			After that, a <strong>js_min</strong> folder will be created, and <strong>boot.js</strong>, <strong>config.js</strong>, <strong>game_request.js</strong>, and <strong>bundle.js</strong> (built from the <strong>js</strong> folder) will be placed there.
+		</p>
+		<h3 id="cop"><strong>P) Copyright</strong> - <a href="#toc">top</a></h3>
+		<p>
+			All images used in the game were generated with the <a href="https://www.midjourney.com/home">Midjourney</a> tool and are free to use commercially.
+		</p>
+		<p>
+			All sounds and music are free to use commercially and obtained from the following resources:
+			<ul>
+				<li><a href="https://pixabay.com/music/">Pixabay</a></li>
+				<li><a href="https://itch.io/">Itch</a></li>
+				<li><a href="https://www.silvermansound.com/">Silvermansound</a></li>
+			</ul>
+		</p>
+		
+		<hr>
+		
+		<p>Once again, thank you so much for purchasing this game. Feel free to contact us if you have any questions or issue relating to this game. No guarantees, but we'll do our best to assist.</p> 
+		
+		<p class="append-bottom alt large"><strong>APG</strong></p>
+		<p><a href="#toc">Go To Table of Contents</a></p>
+		
+		<hr class="space">
+	</div><!-- end div .container -->
+</body>
+</html>
