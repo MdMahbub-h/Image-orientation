@@ -199,8 +199,7 @@ function get_game_config() {
 			mode: Phaser.Scale.FIT,
 			autoCenter: Phaser.Scale.CENTER_HORIZONTALLY,
 		}
-		let gameDiv = document.getElementById("phaser_game");
-    gameDiv.style.transform = "rotate(90deg)";
+document.body.style.transform = "rotate(90deg)";
 	}
 	else {
 		config['scale'] = {
