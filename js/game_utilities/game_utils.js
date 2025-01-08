@@ -1015,7 +1015,7 @@ class GameUtils {
         pictures.forEach((pict) => {
           loader.image(
             `level${level_id}_${pict}`,
-            url + `level${level_id}/` + pict + ".jpg"
+            url + `level${level_id}/` + pict + ".webp"
           );
         });
         loader.once(
