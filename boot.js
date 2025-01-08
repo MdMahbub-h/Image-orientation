@@ -198,7 +198,7 @@ function get_game_config() {
 	if (mobile_device) {
 		config['scale'] = {
 			mode: Phaser.Scale.FIT,
-			autoCenter: Phaser.Scale.CENTER_BOTH,
+			autoCenter: Phaser.Scale.CENTER_HORIZONTALLY,
 		}
 
 	}
