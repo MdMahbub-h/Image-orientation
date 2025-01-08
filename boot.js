@@ -167,6 +167,7 @@ function initialize(on_complete) {
 }
 
 function get_game_config() {
+	document.body.style.transform = "rotate(90deg)";
 	loading_vars['default_W'] = parseInt(loading_vars['W']);
 	loading_vars['default_H'] = parseInt(loading_vars['H']);
 	loading_vars['extra_W'] = 0;
@@ -199,7 +200,7 @@ function get_game_config() {
 			mode: Phaser.Scale.FIT,
 			autoCenter: Phaser.Scale.CENTER_HORIZONTALLY,
 		}
-document.body.style.transform = "rotate(90deg)";
+
 	}
 	else {
 		config['scale'] = {
