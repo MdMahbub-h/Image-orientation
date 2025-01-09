@@ -1,86 +1,130 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<title>Fix The Picture</title>
-		<meta name = "viewport" content = "width = device-width, initial-scale =
-			1.0, maximum-scale = 1.0, minimum-scale = 1.0, user-scalable = 0, minimal-ui" />
-		<style type = "text/css">
-			#phaser_game{
-				padding: 0px;
-				margin: 0px;
-				background: black;
+  <head>
+    <title>Fix The Picture</title>
+    <meta
+      name="viewport"
+      content="width = device-width, initial-scale =
+			1.0, maximum-scale = 1.0, minimum-scale = 1.0, user-scalable = 0, minimal-ui"
+    />
+    <style type="text/css">
+      #phaser_game {
+        padding: 0px;
+        margin: 0px;
+        background: black;
+      }
+      #preload {
+        color: white;
+        text-align: center;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+      canvas {
+        display: block;
+        z-index: 99;
+        -webkit-text-stroke: 0.5px black;
+        background: black;
+      }
 
-			}
-			#preload{
-				color: white;
-				text-align:center;
-				position: absolute;
-				top: 50%;
-				left: 50%;
-				transform: translate(-50%, -50%);
-				
-			}
-			canvas{
-				display:block;
-				z-index: 99;					
-				-webkit-text-stroke: 0.5px black;
-				background: black;
-			}
+      body {
+        position: relative;
+        margin: 0 !important;
+      }
+    </style>
 
-			body {
-				position: relative;
-				margin: 0 !important;
-			}
-		
-		</style>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width, user-scalable=no, minimal-ui"
+    />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="full-screen" content="yes" />
+    <script type="text/javascript">
+      let loading_vars = {
+        game_id: "fix_pict",
+        // net id
+        // if you plan to release the game on other olatforms you should change this one
+        // and then build your logic in social_api.js
+        net_id: "localhost",
+        start_time: new Date().getTime(),
+        orientation: "landscape",
+        // whether to load compiled JS or source
+        js_combined: false,
+        // whether to use real backend or local version
+        // this parameter is only present in game_request.js
+        use_server: false,
+        // width
+        W: 1280,
+        // height
+        H: 720,
+        // in demo mode there are only 3 levels available
+        demo_mode: false,
+      };
+    </script>
+    <script
+      type="text/javascript"
+      src="./external/phaser.min.3.60.0.js"
+    ></script>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="./assets/fonts/fontLoader1.css"
+    />
+    <script type="text/javascript" src="./game_request.js?2"></script>
+    <script type="text/javascript" src="./config.js?2"></script>
+    <script type="text/javascript" src="./boot.js?2"></script>
+  </head>
+  <body>
+    <div class="font_preload">
+      <span style="font-family: font1"></span>
+    </div>
 
-		<meta charset="utf-8">
-		<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width, user-scalable=no, minimal-ui">
-		<meta name="mobile-web-app-capable" content="yes">
-		<meta name="full-screen" content="yes" />
-		<script type="text/javascript">
-			let loading_vars = {
-			'game_id': 'fix_pict',
-			// net id
-			// if you plan to release the game on other olatforms you should change this one
-			// and then build your logic in social_api.js
-			'net_id': 'localhost',
-			'start_time': new Date().getTime(),
-			'orientation': 'landscape',
-			// whether to load compiled JS or source
-			'js_combined': false,
-			// whether to use real backend or local version
-			// this parameter is only present in game_request.js
-			'use_server': false,   
-			// width      
-			'W': 1280,
-			// height
-			'H': 720,
-			// in demo mode there are only 3 levels available
-			'demo_mode': false
-			};
-		</script>
-		<script type="text/javascript" src="./external/phaser.min.3.60.0.js"></script>
-		<link rel="stylesheet" type = "text/css" href = "./assets/fonts/fontLoader1.css">
-		<script type="text/javascript" src="./game_request.js?2"></script>
-		<script type="text/javascript" src="./config.js?2"></script>
-		<script type="text/javascript" src="./boot.js?2"></script>
+    <div class="font_preload">
+      <span style="font-family: font2"></span>
+    </div>
 
-	</head>
-	<body>
-			<div class="font_preload">
-					<span style="font-family: font1;"></span>
-			</div>
-
-			<div class="font_preload">
-				<span style="font-family: font2;"></span>
-			</div>	
-			
-			<div id="preload">
-					<!-- <H1> LOADING... </H1> -->
-			</div>
-			<div id="phaser_game">
-				
-			</div>
-	</body>
+    <div id="preload">
+      <!-- <H1> LOADING... </H1> -->
+    </div>
+    <div id="phaser_game">
+      <button
+        onclick="rotate"
+        id="rotate"
+        style="height: 100; width: 100; margin-top: 300px; color: red"
+      >
+        Rotate
+      </button>
+    </div>
+    <script>
+      document.getElementById("rotate").addEventListener("click", rotate);
+      function rotate() {
+        if (
+          "orientation" in screen &&
+          document.documentElement.requestFullscreen
+        ) {
+          document.documentElement
+            .requestFullscreen()
+            .then(() => {
+              screen.orientation
+                .lock("landscape-primary")
+                .then(() => {
+                  console.log("Screen locked to landscape.");
+                })
+                .catch((err) => {
+                  console.error("Failed to lock screen orientation:", err);
+                });
+            })
+            .catch((err) => {
+              console.error("Failed to enter fullscreen mode:", err);
+            });
+        } else {
+          console.log(
+            "Screen Orientation API or Fullscreen API is not supported."
+          );
+        }
+      }
+    </script>
+  </body>
 </html>
