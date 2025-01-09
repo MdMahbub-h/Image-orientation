@@ -88,9 +88,7 @@
     <div id="preload">
       <!-- <H1> LOADING... </H1> -->
     </div>
-    <div id="phaser_game"></div>
-    <div id="ifMobile">
-      <h2>Please rotate your phone<br />to play.</h2>
+    <div id="phaser_game">
       <button
         onclick="rotate"
         id="rotateButton"
@@ -99,15 +97,9 @@
         Rotate
       </button>
     </div>
-
     <script>
       if (isMobileDevice()) {
-        document.getElementById("rotateButton").style.display = "block";
-        document.getElementById("phaser_game").style.display = "none";
-        console.log("The website is running on a mobile device.");
       } else {
-        document.getElementById("rotateButton").style.display = "none";
-        document.getElementById("phaser_game").style.display = "block";
         console.log("The website is NOT running on a mobile device.");
       }
 
@@ -121,8 +113,6 @@
         );
       }
       function rotate() {
-        document.getElementById("rotateButton").style.display = "none";
-        document.getElementById("phaser_game").style.display = "block";
         if (
           "orientation" in screen &&
           document.documentElement.requestFullscreen
